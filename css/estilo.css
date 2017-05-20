@@ -37,6 +37,14 @@ input{
 	margin-top: 10px;
 }
 
+.box:nth-child(4n+0){
+    margin-left: 0 !important;
+}
+
+.box{
+	margin-top: 1.03rem;
+}
+
 .row {
 	display: -webkit-box;
 	display: -webkit-flex;
