@@ -2,6 +2,7 @@
 	<html ng-app='app'>
 	<head>
 		<meta charset="UTF-8"/>
+		<meta autor="Rafael Artal"/>
 		<title>Rastreio Correios</title>
 		<script src="https://use.fontawesome.com/4b3e772d8b.js"></script>
 		<script src="/js/angular.js"></script>
