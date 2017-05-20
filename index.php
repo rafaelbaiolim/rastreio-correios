@@ -23,7 +23,7 @@
 						<div class="modal-header">
 							<h6 class="modal-title" id="myModalLabel">
 								<i class="fa fa-archive yellow" aria-hidden="true"></i>
-								Gerenciar Códigos de Rasterio
+								Gerenciar Códigos de Rastreio
 							</h6>
 						</div>
 
