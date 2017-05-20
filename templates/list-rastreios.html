@@ -1,0 +1,22 @@
+
+{% for encomenda in dados %}
+
+<div class="one-third column value box">
+	<h5 class="title value-multiplier">
+	<i class="fa fa-archive yellow" aria-hidden="true"></i>
+		{{encomenda.codigo}}
+	</h5>
+	<span class="tag"> {{encomenda.tag}} </span>
+
+	<div class="value-heading">
+		<b> Status </b>: {{encomenda.status}}<hr>
+		<b>Ocorrido em</b>: {{encomenda.statusData}} {{encomenda.statusHora}}<hr>
+		<b>Encaminhamento</b>: <br>{{encomenda.encaminhadoDe}} 	
+			{% if encomenda.encaminhadoPara is not empty %}
+				para {{encomenda.encaminhadoPara}}
+			{% endif %}
+	</div>
+
+</div>
+
+{% endfor %}
