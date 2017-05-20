@@ -39,8 +39,9 @@ class Rastreio{
 
 		foreach($this->codigosRastreio as $codigo => $tag){
 			$obj = Rastrear::get( $codigo );
-			if(isset($obj->erro))
-				die( $obj->erro );
+			if(isset($obj->erro)){
+				continue;
+			}
 
 			// echo "NUMERO: "    . $obj -> numero . "<br>" ;
 			// echo "CATEGORIA: " . $obj -> categoria . "<br>" ;
