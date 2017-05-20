@@ -3,8 +3,17 @@ hr{
 	margin-bottom: 0.5rem;
 }
 
+
+input{
+	border-radius: 4% !important;	
+}
+
 .yellow{
 	color:#e9bd07;
+}
+
+.red{
+	color:#e84d37;
 }
 
 .title{
@@ -32,7 +41,7 @@ hr{
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
-	display:         flex;
+	display:  flex;
 	flex-wrap: wrap;
 }
 
@@ -42,5 +51,37 @@ hr{
 }
 
 .hero {
-    padding: 5rem 0;
+	padding: 5rem 0;
+}
+
+.lista li{
+	list-style: none;
+}
+
+.lista input,
+.lista input:hover,
+.lista input:focus{
+	width: 100%;
+	border: none;
+	margin:0;
+	padding:0;
+}
+
+.crud input,
+.crud input:hover,
+.crud input:focus{
+	width: 900%;
+}
+
+.lista i{
+	cursor: pointer;
+	margin-top:1.3rem;
+}
+
+.crud .button, 
+.crud button, 
+.crud input[type="submit"], 
+.crud input[type="reset"], 
+.crud input[type="button"]{
+	padding: 0 10px !important;
 }

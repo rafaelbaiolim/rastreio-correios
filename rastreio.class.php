@@ -7,7 +7,7 @@ class Rastreio{
 	protected $encomendas = array();
 	function __construct($codigosRastreio) {
 		if(empty($codigosRastreio)){
-			die("Informe ao menos um código de Rastreio");
+			return;
 		}
 		$this->codigosRastreio = $codigosRastreio; 
 		$this->getEncomendas();
@@ -21,10 +21,9 @@ class Rastreio{
 			// 'cache' => $templatePath. 'cache',
 			));
 		if(!empty($this->encomendas)){
-
 			return $twig->render('list-rastreios.html',array('dados' => $this->encomendas));
 		}
-		die("Nenhuma encomenda ativa para rastreio.");
+		return "<br>Nenhuma encomenda ativa para rastreio.";
 	}
 
 
@@ -38,7 +37,7 @@ class Rastreio{
 
 		Rastrear::init( $_params );
 
-		foreach($this->codigosRastreio as $tag => $codigo){
+		foreach($this->codigosRastreio as $codigo => $tag){
 			$obj = Rastrear::get( $codigo );
 			if(isset($obj->erro))
 				die( $obj->erro );

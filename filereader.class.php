@@ -15,6 +15,10 @@ class FileReader{
 	public function getContent(){
 		return @json_decode(file_get_contents($this->filePath.$this->fileName,true));
 	}
+	
+	public function updateContent($content){
+		return file_put_contents($this->filePath.$this->fileName,$content);
+	}
 
 	
 }
