@@ -38,7 +38,7 @@ input{
 }
 
 .box:nth-child(4n+0){
-    margin-left: 0 !important;
+	margin-left: 0 !important;
 }
 
 .box{
@@ -59,7 +59,7 @@ input{
 }
 
 .hero {
-	padding: 5rem 0;
+	padding: 3.3rem 0;
 }
 
 .lista li{
@@ -93,3 +93,20 @@ input{
 .crud input[type="button"]{
 	padding: 0 10px !important;
 }
+
+#bg-top{
+	background: white url('/img/correios.png') no-repeat center center;
+	background-position:100%;
+	background-size: 50%;
+	width: 100%;
+	min-height: 115px;
+	position: relative !important;
+	text-transform: uppercase; 
+}
+
+.subtitle-bg{
+	float: right;
+	color:#00406c;
+	font-weight: bold;
+}
+

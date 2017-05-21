@@ -60,7 +60,13 @@
 				</div>
 			</div>
 		</div>
-		<!-- /MODAL -->
+		<!-- /MODAL -->	
+		<div class="container">
+			<div  id="bg-top">
+				<span class="subtitle-bg">Rastreio de Encomendas </span>	
+			</div>
+		</div>
+
 
 		<div class="container">
 			<div class="row">
@@ -73,17 +79,17 @@
 					</div>
 
 				</div>
-				
+
 				<!-- <div ng-bind-html="htmlList"></div> -->
 				<div ng-bind-html="htmlList"></div>
-
 			</div>
 		</div>
 
 
-
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="/js/jquery.fallings.js"></script>
+		<script src="/js/fallings-bootstrap.js"></script>
 
 
 
