@@ -4,6 +4,7 @@ app.controller('listController', function($scope,$http){
 	$scope.listFromFile = {};
 	$scope.registro = {};
 	$scope.htmlList = "";
+	$scope.templateLoaded = false;
 	loadTemplate();
 	getList();
 
@@ -29,7 +30,8 @@ app.controller('listController', function($scope,$http){
 		})
 		.then(function(response) {
 			if(response.data['ok']){
-				$scope.htmlList = response.data['html']; 
+				$scope.htmlList = response.data['html'];
+				$scope.templateLoaded = true; 
 			}
 		})
 		.catch(function(){

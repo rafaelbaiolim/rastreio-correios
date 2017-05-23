@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="/css/skeleton.css">
 		<link rel="stylesheet" href="/css/estilo.css">
 		<link rel="stylesheet" href="/css/modal.css">
+		<link rel="stylesheet" href="/css/loader.css">
 	</head>
 	<body ng-controller="listController">
 		<div class="section hero values">
@@ -79,9 +80,24 @@
 					</div>
 
 				</div>
+				<div ng-if="!templateLoaded" class="row">
+					<div class="showbox">
+						<div class="loader">
+							<svg class="circular" viewBox="25 25 50 50">
+								<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+							</svg>
+						</div>
+						<div class="loader-sub">
+							<br>
+							Carregando <span id=wait></span>
+						</div>
+					</div>
+				</div>
 
 				<!-- <div ng-bind-html="htmlList"></div> -->
-				<div ng-bind-html="htmlList"></div>
+				<div ng-bind-html="htmlList">
+					
+				</div>
 			</div>
 		</div>
 
@@ -90,6 +106,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src="/js/jquery.fallings.js"></script>
 		<script src="/js/fallings-bootstrap.js"></script>
+		<script src="/js/loader-dot.js"></script>
 
 
 
