@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 	<html ng-app='app'>
 	<head>
 		<meta charset="UTF-8"/>
