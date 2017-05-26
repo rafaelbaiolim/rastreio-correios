@@ -4,8 +4,8 @@ require_once 'rastreio.class.php';
 require_once 'filereader.class.php';
 
 $fileReaderObj = new FileReader('codigos.json');
-$codigos = $fileReaderObj->getContent();
-$rastreioObj = new Rastreio($codigos);
+$registros = $fileReaderObj->getContent();
+$rastreioObj = new Rastreio($registros,$fileReaderObj);
 $listRastreio = $rastreioObj->getListHtml();
 $resp = array();
 $resp['html'] = $listRastreio;

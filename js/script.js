@@ -9,10 +9,12 @@ app.controller('listController', function($scope,$http){
 	getList();
 
 	$scope.cadastrarItem = function(){
-		console.log($scope.registro);
-		$scope.listFromFile[$scope.registro.codigo] = $scope.registro.tag;
+		if($scope.listFromFile[$scope.registro.codigo]){
+			$scope.listFromFile[$scope.registro.codigo].tag = $scope.registro.tag; 
+		}else{
+			$scope.listFromFile[$scope.registro.codigo] = $scope.registro.tag;
+		}
 		$scope.registro = {};
-		console.log($scope.listFromFile);
 		updateFile();
 	}	
 

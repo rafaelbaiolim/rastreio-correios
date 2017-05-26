@@ -3,7 +3,6 @@ hr{
 	margin-bottom: 0.5rem;
 }
 
-
 input{
 	border-radius: 4% !important;	
 }
@@ -110,3 +109,14 @@ input{
 	font-weight: bold;
 }
 
+.status-changed{
+	-webkit-box-shadow: 8px 8px 5px 0px rgba(0,0,0,0.25);
+	-moz-box-shadow: 8px 8px 5px 0px rgba(0,0,0,0.25);
+	box-shadow: 8px 8px 5px 0px rgba(0,0,0,0.25);
+	background-color: #00406c;
+	color: white;
+}
+
+.status-changed h5{
+	border-bottom: 1px solid #e9bd07;
+}

@@ -3,13 +3,17 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 require_once 'rastrear.class.php';
 
 class Rastreio{
-	private $codigosRastreio = array();
+	private $registrosRastreio = array();
+	private $fileReaderInstance = null;
 	protected $encomendas = array();
-	function __construct($codigosRastreio) {
-		if(empty($codigosRastreio)){
+
+	function __construct($registrosRastreio,&$fileReaderInstance = null) {
+		if(empty($registrosRastreio)){
 			return;
 		}
-		$this->codigosRastreio = $codigosRastreio; 
+
+		$this->registrosRastreio = $registrosRastreio; 
+		$this->fileReaderInstance = $fileReaderInstance; 
 		$this->getEncomendas();
 	}
 
@@ -28,7 +32,7 @@ class Rastreio{
 
 
 	private function getEncomendas(){
-		if(empty($this->codigosRastreio)){
+		if(empty($this->registrosRastreio)){
 			return false;
 		}
 		
@@ -37,7 +41,7 @@ class Rastreio{
 
 		Rastrear::init( $_params );
 
-		foreach($this->codigosRastreio as $codigo => $tag){
+		foreach($this->registrosRastreio as $codigo => &$informacoes){
 			$obj = Rastrear::get( $codigo );
 			if(isset($obj->erro)){
 				continue;
@@ -53,19 +57,37 @@ class Rastreio{
 			endif;
 
 			$encomenda = array();
-			$encomenda['tag'] = $tag;
+			$encomenda['tag'] = $informacoes->tag;
 			$encomenda['codigo'] = @$obj->numero;
 			$encomenda['status'] = @$obj->evento[0]->descricao;
 			$encomenda['statusHora'] = @$obj->evento[0]->hora;
 			$encomenda['statusData'] = @$obj->evento[0]->data;
+
+
+			$datetime = new DateTime();
+			$datetimeStatus = $encomenda['statusData']." ".$encomenda['statusHora'];
 			
+			$currentDateTimeStatus = $datetime->createFromFormat('d/m/Y H:i:s',
+				trim($datetimeStatus.":00"));
+			$lastDateTimeStatus = $datetime->createFromFormat('d/m/Y H:i:s',
+				trim($informacoes->lastStatus.":00"));
+
+			$hasChanged =  $lastDateTimeStatus->format('U') <  $currentDateTimeStatus->format('U');
+
+			$encomenda['class'] = "";
+			if($hasChanged){
+				$encomenda['class'] = "status-changed";
+				$informacoes->lastStatus = $datetimeStatus;
+				$this->fileReaderInstance->updateContent(json_encode($this->registrosRastreio,JSON_PRETTY_PRINT));
+			}
+
 			$encomenda['categoria'] = @$obj->categoria;
 
 			$encomenda['encaminhadoDe'] = @$obj->evento[0]->local;
 			$encomenda['encaminhadoDeCodigo'] = @$obj->evento[0]->codigo;
 			$encomenda['encaminhadoDeCidade'] = @$obj->evento[0]->cidade;
 			$encomenda['encaminhadoDeUF'] = @$obj->evento[0]->uf;
-			
+
 			$encomenda['encaminhadoPara'] = @$obj->evento[0]->destino->local;
 			$encomenda['encaminhadoParaCodigo'] = @$obj->evento[0]->destino->codigo;
 			$encomenda['encaminhadoParaCidade'] = @$obj->evento[0]->destino->cidade;

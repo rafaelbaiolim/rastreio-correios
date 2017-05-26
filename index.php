@@ -43,14 +43,14 @@
 							</div>
 							<div class="lista">
 								<ul>
-									<li class="row" ng-repeat="(codigo,tag) in listFromFile">
+									<li class="row" ng-repeat="(codigo,informacoes) in listFromFile">
 										<span class="columns one">
-											<i ng-if="tag"
+											<i ng-if="informacoes.tag"
 											ng-click="removerItem(this)";
 											class="fa fa-minus-circle red" aria-hidden="true"></i>
 										</span>
 										<span class="columns eleven">
-											<input ng-if="tag" type="text" value="{{codigo}} - {{tag}}" />
+											<input ng-if="informacoes.tag" type="text" value="{{codigo}} - {{informacoes.tag}}" />
 										</span>
 									</li>
 								</ul>

@@ -1,7 +1,7 @@
 <div class="row">
 	{% for encomenda in dados %}
 
-	<div class="one-third column value box">
+	<div class="one-third column value box {{encomenda.class}}">
 		<h5 class="title value-multiplier">
 			<i class="fa fa-archive yellow" aria-hidden="true"></i>
 			{{encomenda.codigo}}
